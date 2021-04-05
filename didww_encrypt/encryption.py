@@ -17,6 +17,7 @@ def encrypt(data, pubkey_a, pubkey_b):
     aes_iv = get_random_bytes(AES.block_size)
     cipher = AES.new(aes_key, AES.MODE_CBC, aes_iv)
     encrypted_aes = cipher.encrypt(pad(data, AES.block_size))
-    encrypted_aes_key_a = encrypt_rsa_oaep(aes_key, pubkey_a)
-    encrypted_aes_key_b = encrypt_rsa_oaep(aes_key, pubkey_b)
-    return encrypted_aes_key_a + encrypted_aes_key_b + aes_iv + encrypted_aes
+    aes_key_iv = aes_key + aes_iv
+    encrypted_aes_key_iv_a = encrypt_rsa_oaep(aes_key_iv, pubkey_a)
+    encrypted_aes_key_iv_b = encrypt_rsa_oaep(aes_key_iv, pubkey_b)
+    return encrypted_aes_key_iv_a + encrypted_aes_key_iv_b + encrypted_aes
