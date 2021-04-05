@@ -1,4 +1,4 @@
-# DIDWW Encrypt Python3 SDK
+# DIDWW Encrypt Python 3 SDK
 
 This is Python 3 module and utility to encrypt file for DIDWW API 3.
 
