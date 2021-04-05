@@ -29,10 +29,10 @@ pip install didww_encrypt
 from didww_encrypt import Encrypt
 
 
-infile = open('doc.pdf', 'rb')
+infile = open("doc.pdf", "rb")
 enc = Encrypt.new("sandbox")
 enc_data = enc.encrypt(infile.read())
-outfile = open('doc.pdf.enc', 'wb')
+outfile = open("doc.pdf.enc", "wb")
 outfile.write(enc_data)
 fingerprint = enc.fingerprint
 ```
@@ -91,5 +91,5 @@ $ didww_encrypt -f -mode sandbox -o fingerprint.txt
 both shell script and module function `Encrypt.new` respects `http_proxy` env variable when fetching public keys.
 
 ```shell
-http_proxy='http://myproxy.example.com:1234' didww_encrypt -m sandbox
+http_proxy="http://myproxy.example.com:1234" didww_encrypt -m sandbox
 ```

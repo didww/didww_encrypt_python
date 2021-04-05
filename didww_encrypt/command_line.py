@@ -52,7 +52,7 @@ def main(prog="didww_encrypt"):
     options = parser.parse_args()
     encryptor = Encrypt.new(mode=options.mode, uri=options.uri)
     if options.fingerprint:
-        result = (encryptor.fingerprint + os.linesep).encode('ascii')
+        result = (encryptor.fingerprint + os.linesep).encode("ascii")
     else:
         if not input_has_data(options.input):
             sys.stderr.write("input file or pipe data must be provided\n")
