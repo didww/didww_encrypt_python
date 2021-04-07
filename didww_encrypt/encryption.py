@@ -13,7 +13,7 @@ def encrypt_rsa_oaep(data: bytes, pubkey) -> bytes:
 
 
 def encrypt(data, pubkey_a, pubkey_b):
-    aes_key = get_random_bytes(32)  # AES 512
+    aes_key = get_random_bytes(32)  # AES 256
     aes_iv = get_random_bytes(AES.block_size)
     cipher = AES.new(aes_key, AES.MODE_CBC, aes_iv)
     encrypted_aes = cipher.encrypt(pad(data, AES.block_size))
