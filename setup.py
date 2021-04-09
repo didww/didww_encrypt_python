@@ -12,16 +12,16 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
-    url="https://github.com/didww/didww_encrypt_sdk_python",
+    url="https://github.com/didww/didww_encrypt_python",
     project_urls={
-        "Bug Tracker": "https://github.com/didww/didww_encrypt_sdk_python/issues",
+        "Bug Tracker": "https://github.com/didww/didww_encrypt_python/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    keywords="",
+    keywords="DIDWW, encryption",
     packages=["didww_encrypt"],
     python_requires=">=3.6",
     install_requires=[
