@@ -8,11 +8,13 @@ from Cryptodome.Signature import pss
 
 def encrypt_rsa_oaep(data: bytes, pubkey) -> bytes:
     key = RSA.import_key(pubkey)
-    cipher_rsa = PKCS1_OAEP.new(key=key, hashAlgo=SHA256, mgfunc=lambda x, y: pss.MGF1(x, y, SHA256))
+    cipher_rsa = PKCS1_OAEP.new(
+        key=key, hashAlgo=SHA256, mgfunc=lambda x, y: pss.MGF1(x, y, SHA256)
+    )
     return cipher_rsa.encrypt(data)
 
 
-def encrypt(data, pubkey_a, pubkey_b):
+def encrypt(data, pubkey_a, pubkey_b) -> bytes:
     aes_key = get_random_bytes(32)  # AES 256
     aes_iv = get_random_bytes(AES.block_size)
     cipher = AES.new(aes_key, AES.MODE_CBC, aes_iv)

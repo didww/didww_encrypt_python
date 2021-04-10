@@ -3,6 +3,12 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = fh.read().split("\n")
+
+with open("tests/requirements.txt", "r", encoding="utf-8") as fh:
+    test_requirements = fh.read().split("\n")
+
 setuptools.setup(
     name="didww_encrypt",
     version="1.0.0",
@@ -24,14 +30,12 @@ setuptools.setup(
     keywords="DIDWW, encryption",
     packages=["didww_encrypt"],
     python_requires=">=3.6",
-    install_requires=[
-        "pycryptodomex",
-    ],
+    install_requires=requirements,
     test_suite="nose.collector",
-    tests_require=["nose", "nose-cover3"],
+    tests_require=test_requirements,
     entry_points={
         "console_scripts": ["didww_encrypt=didww_encrypt.command_line:main"],
     },
     include_package_data=True,
-    zip_safe=False
+    zip_safe=False,
 )
