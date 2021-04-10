@@ -3,3 +3,4 @@ httpretty
 nose
 nose-cover3
 black
+coverage

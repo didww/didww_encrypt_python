@@ -12,3 +12,6 @@
 
 # pipenv lockfile
 /Pipfile.lock
+
+# coverage
+.coverage

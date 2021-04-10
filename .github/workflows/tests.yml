@@ -33,6 +33,9 @@ jobs:
     - name: Test with unittest
       run: |
         python setup.py test
-    - name: Testing build
+    - name: Testing build and generate coverage report
       run: |
-        python setup.py build
+        coverage run -m unittest -v
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
