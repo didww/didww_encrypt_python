@@ -40,7 +40,3 @@ class TestFingerprint(unittest.TestCase):
             "3cec19a8adf27cf0323d91640b98e9dc501f212b:::434f83703c899ed16329252940773da8fa38678c",
             result
         )
-
-
-if __name__ == "__main__":
-    unittest.main()
