@@ -37,5 +37,5 @@ setuptools.setup(
         "console_scripts": ["didww_encrypt=didww_encrypt.command_line:main"],
     },
     include_package_data=True,
-    zip_safe=False
+    zip_safe=False,
 )
