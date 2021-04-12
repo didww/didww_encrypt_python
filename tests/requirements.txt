@@ -1,6 +1,4 @@
 flake8
 httpretty
-nose
-nose-cover3
 black
 coverage

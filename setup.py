@@ -31,7 +31,7 @@ setuptools.setup(
     packages=["didww_encrypt"],
     python_requires=">=3.6",
     install_requires=requirements,
-    test_suite="nose.collector",
+    test_suite="tests",
     tests_require=test_requirements,
     entry_points={
         "console_scripts": ["didww_encrypt=didww_encrypt.command_line:main"],

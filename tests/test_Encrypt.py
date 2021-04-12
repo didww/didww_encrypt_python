@@ -67,3 +67,21 @@ class TestEncrypt(unittest.TestCase):
         self.assertEqual(data, decrypted_a)
         decrypted_b = decrypt(encrypted, private_keys["private_key_b"], 1)
         self.assertEqual(data, decrypted_b)
+
+    def test_without_mode_nor_uri(self):
+        exception = None
+        try:
+            Encrypt.new()
+        except BaseException as e:
+            exception = e
+        self.assertIsInstance(exception, ValueError)
+        self.assertEqual("Valid mode, or uri must be provided", str(exception))
+
+    def test_without_invalid_mode(self):
+        exception = None
+        try:
+            Encrypt.new(mode="foo")
+        except BaseException as e:
+            exception = e
+        self.assertIsInstance(exception, ValueError)
+        self.assertEqual("Valid mode, or uri must be provided", str(exception))
