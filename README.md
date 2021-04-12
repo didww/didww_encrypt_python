@@ -1,5 +1,8 @@
 # DIDWW Encrypt Python 3 SDK
 
+[![github_actions](https://github.com/didww/didww_encrypt_python/actions/workflows/tests.yml/badge.svg)](https://github.com/didww/didww_encrypt_python/actions)
+[![codecov](https://codecov.io/gh/didww/didww_encrypt_python/branch/main/graph/badge.svg)](https://codecov.io/gh/didww/didww_encrypt_python)
+
 This is Python 3 module and utility to encrypt file for DIDWW API 3.
 
 File encrypted with mode `sandbox` could be uploaded to `POST https://sandbox-api.didww.com/v3/encrypted_files`.
@@ -26,15 +29,20 @@ pip install didww_encrypt
 
 ### Inside python
 ```python
-from didww_encrypt import Encrypt
+from didww_encrypt import Encrypt, MODE_PRODUCTION
 
 
-infile = open("doc.pdf", "rb")
-enc = Encrypt.new("sandbox")
-enc_data = enc.encrypt(infile.read())
-outfile = open("doc.pdf.enc", "wb")
-outfile.write(enc_data)
-fingerprint = enc.fingerprint
+with open("doc.pdf", mode="rb") as f:
+    data = f.read()
+    
+enc = Encrypt.new(MODE_PRODUCTION)
+enc_data = enc.encrypt(data)
+enc_filename = "doc.pdf.enc"
+with open(enc_filename, mode="wb") as f:
+    f.write(enc_data)
+    
+print(f"encrypted file saved: {enc_filename}")
+print(f"fingerprint: {enc.fingerprint}")
 ```
 
 ### Shell
@@ -92,4 +100,33 @@ both shell script and module function `Encrypt.new` respects `http_proxy` env va
 
 ```shell
 http_proxy="http://myproxy.example.com:1234" didww_encrypt -m sandbox
+```
+
+## Development
+
+### Install dependencies
+
+```shell
+pip install -r requirements.txt
+pip install -r tests/requirements.txt
+```
+
+### Run tests
+```shell
+python -m unittest -v
+```
+
+### Run tests with coverage
+```shell
+coverage run -m unittest -v
+```
+
+### Lint with flake8
+```shell
+flake8 . --count --show-source --statistics
+```
+
+### Fix code format with Black
+```shell
+black .
 ```

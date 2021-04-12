@@ -6,7 +6,7 @@ from Cryptodome.Util.Padding import pad
 from Cryptodome.Signature import pss
 
 
-def encrypt_rsa_oaep(data: bytes, pubkey) -> bytes:
+def encrypt_rsa_oaep(data: bytes, pubkey: str) -> bytes:
     key = RSA.import_key(pubkey)
     cipher_rsa = PKCS1_OAEP.new(
         key=key, hashAlgo=SHA256, mgfunc=lambda x, y: pss.MGF1(x, y, SHA256)
@@ -14,7 +14,14 @@ def encrypt_rsa_oaep(data: bytes, pubkey) -> bytes:
     return cipher_rsa.encrypt(data)
 
 
-def encrypt(data, pubkey_a, pubkey_b) -> bytes:
+def encrypt(data: bytes, pubkey_a: str, pubkey_b: str) -> bytes:
+    """Encrypt data with public keys
+
+    :param data: data that you want to encrypt
+    :param pubkey_a: first RSA public key
+    :param pubkey_b:  second RSA public key
+    :return: encrypted data
+    """
     aes_key = get_random_bytes(32)  # AES 256
     aes_iv = get_random_bytes(AES.block_size)
     cipher = AES.new(aes_key, AES.MODE_CBC, aes_iv)
