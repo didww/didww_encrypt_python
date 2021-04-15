@@ -3,7 +3,7 @@
 [![github_actions](https://github.com/didww/didww_encrypt_python/actions/workflows/tests.yml/badge.svg)](https://github.com/didww/didww_encrypt_python/actions)
 [![codecov](https://codecov.io/gh/didww/didww_encrypt_python/branch/main/graph/badge.svg)](https://codecov.io/gh/didww/didww_encrypt_python)
 
-This is Python 3 module and utility to encrypt file for DIDWW API 3.
+This is Python 3 module and CLI to encrypt file for DIDWW API 3.
 
 File encrypted with mode `sandbox` could be uploaded to `POST https://sandbox-api.didww.com/v3/encrypted_files`.
 
