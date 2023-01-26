@@ -83,13 +83,13 @@ $ cat ./doc.pdf | python -m didww_encrypt -m sandbox > ./doc.pdf.enc
 
 To print fingerprint use `-f` option instead of `-i`
 ```shell
-$ didww_encrypt -f -mode sandbox
+$ didww_encrypt -f -m sandbox
 c74684d7863639169c21c4d04747f8d6fa05cfe3:::7c56fd5d2e1f2ada18765d936e74712037aea7eb
 ```
 
 Or you can save it to a file
 ```shell
-$ didww_encrypt -f -mode sandbox -o fingerprint.txt
+$ didww_encrypt -f -m sandbox -o fingerprint.txt
 ```
 
 **Keep in mind** that shell script returns fingerprint with newline which should be omitted when send it to `/v3/encrypted_files`.
